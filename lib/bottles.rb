@@ -2,10 +2,15 @@ class Bottles
 
 	def verse(numberOfBottles)
 
-		result = numberOfBottles.to_s + " " + bottlesName(numberOfBottles) + " of beer on the wall, " \
-				+ numberOfBottles.to_s + " " + bottlesName(numberOfBottles) + " of beer.\n"\
-				+ "Take " + pronoun(numberOfBottles) + " down and pass it around, " \
-				+ countInWords(numberOfBottles - 1) + " " + bottlesName(numberOfBottles - 1) \
+		nextNumber = numberOfBottles - 1 
+		if (nextNumber < 0)
+			nextNumber = 99
+		end
+
+		result = countInWords(numberOfBottles).capitalize + " " + bottlesName(numberOfBottles) + " of beer on the wall, " \
+				+ countInWords(numberOfBottles) + " " + bottlesName(numberOfBottles) + " of beer.\n"\
+				+ newNumberClause(numberOfBottles) \
+				+ countInWords(nextNumber) + " " + bottlesName(nextNumber) \
 				+ " of beer on the wall.\n"
 
 	end
@@ -32,6 +37,15 @@ class Bottles
 		else
 			numberOfBottles.to_s
 		end		
-
 	end
+
+	def newNumberClause(numberOfBottles)
+
+		if (numberOfBottles == 0) 
+			"Go to the store and buy some more, "
+		else
+			"Take " + pronoun(numberOfBottles) + " down and pass it around, " 
+		end
+	end
+
 end
