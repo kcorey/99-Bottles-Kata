@@ -1,5 +1,10 @@
 class Bottles
 
+	def song
+
+		result = verses(99,0)
+	end
+
 	def verses(startNumberOfBottles, finishNumberOfBottles)
 
 		result = ""
