@@ -1,5 +1,20 @@
 class Bottles
 
+	def verses(startNumberOfBottles, finishNumberOfBottles)
+
+		result = ""
+		iterationCount = startNumberOfBottles
+		while iterationCount >= finishNumberOfBottles
+			if (result != "")
+				result += "\n"
+			end
+			result += verse(iterationCount)
+			iterationCount -= 1
+		end		
+
+		return result
+	end
+
 	def verse(numberOfBottles)
 
 		nextNumber = numberOfBottles - 1 
